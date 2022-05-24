@@ -1,0 +1,121 @@
+<% }else if( cinema.cinema === '2' ){%>
+  <h3> Theater 2 </h3>
+  <div class = "col ">
+      <div class="card text-dark">
+          <img src="<%= movie[0].poster %>" class="card-img index-image" width = "450" height = "400">
+          <div class = "card-body">
+              <p> <%= movie[0].date%>  </p>
+              <p> <%= movie[0].name %> </p>
+              <div class = "d-flex justify-content-between align-items-center">
+                  <div class = "btn-group">
+                      <a href = "/movies/<%= movie[0]._id %>" class = "btn btn-sm btn-outline-secondary" > View </a>  
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> 
+<% }else if( cinema.cinema === '3' ){%>
+  <h3> Theater 3 </h3>
+  <div class = "col ">
+      <div class="card text-dark">
+          <img src="<%= cinema.poster %>" class="card-img index-image" width = "450" height = "400">
+          <div class = "card-body">
+              <p> <%= cinema.date%>  </p>
+              <p> <%= cinema.name %> </p>
+              <div class = "d-flex justify-content-between align-items-center">
+                  <div class = "btn-group">
+                      <a href = "/movies/<%= cinema._id %>" class = "btn btn-sm btn-outline-secondary" > View </a>  
+                  </div>
+                  <small class = "text-muted"> <%= cinema.time %> mins </small>
+              </div>
+          </div>
+      </div>
+  </div>  
+<% }else if( cinema.cinema === '4' ){ %>
+  <h3> Theater 4 </h3>
+  <div class = "col ">
+      <div class="card text-dark">
+          <img src="<%= cinema.poster %>" class="card-img index-image" width = "450" height = "400">
+          <div class = "card-body">
+              <p> <%= cinema.date%>  </p>
+              <p> <%= cinema.name %> </p>
+              <div class = "d-flex justify-content-between align-items-center">
+                  <div class = "btn-group">
+                      <a href = "/movies/<%= cinema._id %>" class = "btn btn-sm btn-outline-secondary" > View </a>  
+                  </div>
+                  <small class = "text-muted"> <%= cinema.time %> mins </small>
+              </div>
+          </div>
+      </div>
+  </div>  
+<% }else if( cinema.cinema === '5' ){%>
+  <h3> Theater 5 </h3>
+  <div class = "col ">
+      <div class="card text-dark">
+          <img src="<%= cinema.poster %>" class="card-img index-image" width = "450" height = "400">
+          <div class = "card-body">
+              <p> <%= cinema.date%>  </p>
+              <p> <%= cinema.name %> </p>
+              <div class = "d-flex justify-content-between align-items-center">
+                  <div class = "btn-group">
+                      <a href = "/movies/<%= cinema._id %>" class = "btn btn-sm btn-outline-secondary" > View </a>  
+                  </div>
+                  <small class = "text-muted"> <%= cinema.time %> mins </small>
+              </div>
+          </div>
+      </div>
+  </div>  
+<% }else if( cinema.cinema === '6' ){%>
+  <h3> Theater 6 </h3>
+  <div class = "col ">
+      <div class="card text-dark">
+          <img src="<%= cinema.poster %>" class="card-img index-image" width = "450" height = "400">
+          <div class = "card-body">
+              <p> <%= cinema.date%>  </p>
+              <p> <%= cinema.name %> </p>
+              <div class = "d-flex justify-content-between align-items-center">
+                  <div class = "btn-group">
+                      <a href = "/movies/<%= cinema._id %>" class = "btn btn-sm btn-outline-secondary" > View </a>  
+                  </div>
+                  <small class = "text-muted"> <%= cinema.time %> mins </small>
+              </div>
+          </div>
+      </div>
+  </div>  
+<% }else if( cinema.cinema === '7' ){%>
+  <h3> Theater 7 </h3>
+  <div class = "col ">
+      <div class="card text-dark">
+          <img src="<%= cinema.poster %>" class="card-img index-image" width = "450" height = "400">
+          <div class = "card-body">
+              <p> <%= cinema.date%>  </p>
+              <p> <%= cinema.name %> </p>
+              <div class = "d-flex justify-content-between align-items-center">
+                  <div class = "btn-group">
+                      <a href = "/movies/<%= cinema._id %>" class = "btn btn-sm btn-outline-secondary" > View </a>  
+                  </div>
+                  <small class = "text-muted"> <%= cinema.time %> mins </small>
+              </div>
+          </div>
+      </div>
+  </div>  
+<% }else if( cinema.cinema === '8' ){%>
+  <h3> Theater 8 </h3>
+  <div class = "col ">
+      <div class="card text-dark">
+          <img src="<%= cinema.poster %>" class="card-img index-image" width = "450" height = "400">
+          <div class = "card-body">
+              <p> <%= cinema.date%>  </p>
+              <p> <%= cinema.name %> </p>
+              <div class = "d-flex justify-content-between align-items-center">
+                  <div class = "btn-group">
+                      <a href = "/movies/<%= cinema._id %>" class = "btn btn-sm btn-outline-secondary" > View </a>  
+                  </div>
+                  <small class = "text-muted"> <%= cinema.time %> mins </small>
+              </div>
+          </div>
+      </div>
+  </div>  
+<% } %>
+
+

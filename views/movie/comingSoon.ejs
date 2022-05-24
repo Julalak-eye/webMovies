@@ -1,0 +1,393 @@
+<%- include( "../partials/header.ejs" ) %>
+
+    <body class="bgAllPage" >
+        <div class="row" >
+            <h3 class = "text-light mt-5 col comingSoon"> COMING SOON </h3>
+        </div>
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% let x = 0 %>
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 0 ){ x = 1 %>
+                            <h4 class="text-light ms-5 mb-4"> January </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 0) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 1 ){ x = 2 %>
+                            <h4 class="text-light ms-5 mb-4"> February </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 1) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 2 ){ x = 3 %>
+                            <h4 class="text-light ms-5 mb-4"> March </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 2) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 3 ){ x = 4 %>
+                            <h4 class="text-light ms-5 mb-4"> April </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 3) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 4 ){ x = 5 %>
+                            <h4 class="text-light ms-5 mb-4"> May </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 4) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+         <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 5 ){ x = 6 %>
+                            <h4 class="text-light ms-5 mb-4"> June </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 5) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 6 ){ x = 7 %>
+                            <h4 class="text-light ms-5 mb-4"> July </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 6) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 7 ){ x = 8 %>
+                            <h4 class="text-light ms-5 mb-4"> August </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 7) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 8 ){ x = 9 %>
+                            <h4 class="text-light ms-5 mb-4"> September </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 8) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 9 ){ x = 10 %>
+                            <h4 class="text-light ms-5 mb-4"> October </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 9) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 10 ){ x = 11 %>
+                            <h4 class="text-light ms-5 mb-4"> November </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 10) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class = "overflow-scroll">
+            <div class = "album">
+                <% movie.forEach(function(movie){ %>
+                    <% if( movie.category === false ){ %>
+                        <% let date = new Date(movie.date) %>
+                        <% if(x === 11 ){ x = 12 %>
+                            <h4 class="text-light ms-5 mb-4"> December </h4>
+                        <% } %>
+                        <% if(date.getMonth() === 11) { %>  
+                            <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                                <div class = "col ">
+                                    <div class="card text-light comingSoon-card">
+                                        <div class="comingSoon-card-hover">
+                                            <img src="<%= movie.poster %>" class="card-img index-image comingSoon-hover-image" width = "450" height = "420">
+                                            <div class="comingSoon-hover-view">
+                                                <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                                <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-5" > VIEW </a>
+                                            </div>   
+                                        </div>
+                                        <div class = "card-body">
+                                            <p > <%= movie.date %> </p>
+                                            <p > <%= movie.name %> </p>
+                                        </div>
+                                    </div> 
+                                </div>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+            </div>
+        </div>
+
+<%- include( "../partials/footer.ejs" ) %>

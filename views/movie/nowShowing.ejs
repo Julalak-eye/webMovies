@@ -1,0 +1,39 @@
+<%- include( "../partials/header.ejs" ) %>
+
+    <!-- NOWSHOWING -->
+    <body class="bgAllPage " >
+        <div class="row" >
+            <h5 class = "text-light mt-5 col nowShowing"> NOW SHOWING </h5>
+       </div>
+       <div class = "overflow-scroll" >
+           <div class = "album py-5" >
+               <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" >
+                   <% movie.forEach(function(movie){ %>
+                       <% if( movie.category === true ){ %>
+                       <div class = "col" >
+                           <div class="card text-light nowShowing-card">
+                               <div class="nowShowing-card-hover">
+                                   <img src="<%= movie.poster %>" class="card-img index-image nowShowing-hover-image" width = "450" height = "420">
+                                   <div class="nowShowing-hover-view">
+                                           <p> <i class="fa-solid fa-tag"></i> <%= movie.genre %> </p>
+                                           <p> <i class="fa-solid fa-film"></i> <%= movie.rate %> </p>
+                                           <p> <i class="fa-solid fa-clock"></i> <%= movie.time %> Mins  </p>
+                                       <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light text-center mt-5 fs-5" > VIEW </a>
+                                   </div>
+                               </div>
+                               <div class = "card-body">
+                                   <p class="fs-6 textShadowPurple"> <%= movie.date%>  </p>
+                                   <p class="textShadow"> <%= movie.name %> </p>
+                                   <div class = "btn-group">
+                                       <a href = "/showtime/movie/<%= movie._id %>" class = "btn-sm btn btn-outline-warning" > GET TICKETS </a>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>  
+                       <% } %>
+                   <% }) %>
+               </div>
+           </div>
+       </div>
+       </div>
+<%- include( "../partials/footer.ejs" ) %>

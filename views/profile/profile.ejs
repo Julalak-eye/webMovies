@@ -1,0 +1,77 @@
+<%- include( "../partials/header.ejs" ) %>
+
+<body class="bgAllPage" >
+
+    <!-- ticket -->
+    <ol class="list-group list-group-numbered">
+        <h3 class="text-light mt-3 ms-5"> My Ticket </h3>
+        <% ticket.map(function(ticket, i){ %>   
+            <li class="list-group-item d-flex justify-content-between align-items-start text-light bgAllPage ms-5 mt-3">
+                <img src = " <%= movieTicket[i].poster %>" height = "300px" class = "index-image ms-2 me-5">
+                <div class="ms-2 me-auto">
+                    <p> Name: <%= movieTicket[i].name %> </p>
+                    <p> Release Date: <%= ticket.schedulingId.date %> </p>
+                    <p> Show Time: <%= ticket.schedulingId.selectShowtime %> </p>
+                    <p> <i class="fa-solid fa-location-dot"></i> BKK </p>
+                    <p> Cinema: <%= ticket.schedulingId.cinema %> </p>  
+                    <p> Seat: <%= ticket.mySeat %> </p> 
+                    <div class = "btn-group mt-2" > 
+                        <a href = "/movies/<%= movieTicket[i]._id %>" class = "btn btn-sm btn-outline-light me-5" > View </a>
+                    </div> 
+                </div>                  
+            </li>
+        <% }) %>  
+    </ol>
+
+    <ol class="list-group list-group-numbered">
+        <h3 class="text-light mt-5 ms-5"> My favorite </h3>
+        <% movie.forEach(function(movie){ %>   
+            <li class="list-group-item d-flex justify-content-between align-items-start text-light bgAllPage ms-5 mt-3">
+                <img src = " <%= movie.poster %>" height = "300px" class = "index-image ms-2 me-5">
+                <div class="ms-2 me-auto">
+                    <p> Name: <%= movie.name %> </p>
+                    <p> Release Date: <%= movie.date %> </p>
+                    <p> Genre: <%= movie.genre %> </p>
+                    <p> Rate: <%= movie.rate %> </p>
+                    <p> Time:<%= movie.time %> mins </p>
+                    <div class = "btn-group mt-2" > 
+                        <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light me-5" > View </a>
+                    </div>
+                </div> 
+                <form action="/profile/<%= movie._id %>?_method=DELETE" class="mt-2 me-5" method="post">
+                    <button class="btn-profile"> <i class="fa-solid fa-heart fa-2xl" style="color: white;"></i></button>
+                </form>  
+                              
+            </li>
+        <% }) %>  
+    </ol>
+
+    <!-- comment -->
+    <ol class="list-group list-group-numbered">
+        <h3 class="text-light mt-5 ms-5"> My Comment </h3>
+        <% comment.forEach(function(comment){ %>   
+            <li class="list-group-item d-flex justify-content-between align-items-start text-light bgAllPage ms-5 mt-3">
+                <img src = " <%= comment.poster %>" height = "300px" class = "index-image ms-2 me-5">
+                <div class="ms-2 me-auto">
+                    <% commentText.map(function(text, i){ %>
+                        <% if(i !== commentText.length-1){ %>
+                            <span> <%= text %>, </span>
+                        <% } else{ %>
+                            <span> <%= text %> </span>
+                        <% } %>
+                    <% }) %>
+                    <p> Name: <%= comment.name %> </p>
+                    <p> Release Date: <%= comment.date %> </p>
+                    <p> Genre: <%= comment.genre %> </p>
+                    <p> Rate: <%= comment.rate %> </p>
+                    <p> Time:<%= comment.time %> mins </p>
+                    <div class = "btn-group btn-profile-view"> 
+                        <a href = "/movies/<%= comment._id %>" class = "btn btn-sm btn-outline-light me-5" > View </a>
+                    </div>
+                </div>                  
+            </li>
+        <% }) %>  
+    </ol>
+
+
+<%- include( "../partials/footer.ejs" ) %>

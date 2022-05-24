@@ -1,0 +1,33 @@
+<%- include( "../partials/header.ejs" ) %>
+    <body class="bgAllPage text-light">
+        <div class = "container">
+
+            <h3 class="text-center mt-2"> ADD NEW PROMOTIONS </h3>
+
+            <form action = "/promotions" method = "post" enctype = "multipart/form-data">
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Product Poster </h5>
+                    <input type = "file" class = "form-control" name = "productPoster" accept = "productPoster/*">
+                </div> 
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Product Name </h5>
+                    <input type = "text" class = "form-control" name = "promotions[productName]" placeholder = "PRODUCT NAME">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> รายละเอียดสินค้า </label>
+                    <input type = "text" class = "form-control" name = "promotions[detail]" placeholder = "รายละเอียดสินค้า">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <lh5 for = "exampleFormControlInput1" class = "form-label"> ระยะเวลาเริ่มจำหน่าย </lh5>
+                    <input type = "text" class = "form-control" name = "promotions[sold]" placeholder = "ระยะเวลาเริ่มจำหน่าย">
+                </div>
+
+                <button type = "submit" class = "btn btn-outline-warning me-5 promotion-create-submit"> submit </button>
+                <a href = "/promotions" class = "btn btn-outline-light" > Back </a>
+            </form>
+        </div>
+

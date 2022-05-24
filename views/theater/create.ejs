@@ -1,0 +1,60 @@
+<%- include( "../partials/header.ejs" ) %>
+    <body class="bgAllPage text-light" > 
+        <form action = "/movies/<%= movie._id %>/cinema/" method = "post" class="container">
+
+            <div class = "mb-3 theater mt-3">
+                
+                <!-- movie date -->
+                <div class = "theater-date">
+                    <h4 for = "exampleFormControlInput1" class = "form-label">Start Date </h4>
+                    <h4> YYYY-MM-DD </h4>
+                    <input type = "text" class="form-control w-25" name = "theater[startDate]">
+                </div>
+
+                <div class = "theater-date">
+                    <h4 for = "exampleFormControlInput1" class = "form-label">End Date </h4>
+                    <h4> YYYY-MM-DD </h4>
+                    <input type = "text" class="form-control w-25" name = "theater[endDate]">
+                </div>
+                
+                <div class = "mt-4 mb-3 w-100">
+                    <h5> Select Theater </h5>
+                    <div class="form-check form-check-inline ms-4">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio1" value="1">
+                        <label class="form-check-label" for="inlineRadio1"> Theater 1 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio2" value="2">
+                        <label class="form-check-label" for="inlineRadio2"> Theater 2 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio2" value="3">
+                        <label class="form-check-label" for="inlineRadio2"> Theater 3 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio2" value="4">
+                        <label class="form-check-label" for="inlineRadio2"> Theater 4 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio2" value="5">
+                        <label class="form-check-label" for="inlineRadio2"> Theater 5 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio2" value="6">
+                        <label class="form-check-label" for="inlineRadio2"> Theater 6 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio2" value="7">
+                        <label class="form-check-label" for="inlineRadio2"> Theater 7 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="theater[cinema]" id="inlineRadio2" value="8">
+                        <label class="form-check-label" for="inlineRadio2"> Theater 8 </label>
+                    </div>
+                </div>
+
+                <button type = "submit" class = "btn btn-outline-warning mt-2" > submit </button>
+                <a href = "/movies" class = "btn btn-outline-light mt-2 ms-5" > Back </a>
+            </div>
+        </form>
+        

@@ -1,0 +1,24 @@
+<%- include( "partials/header.ejs" ) %>
+    <body class="bgAllPage" >
+        <ol class="list-group list-group-numbered">
+            
+            <% search.forEach(function(search){ %>   
+                <li class="list-group-item d-flex justify-content-between align-items-start text-light bgSearch">
+                    <div class="search-hover">
+                        <img src = " <%= search.poster %>" height = "200px" class = "index-image ms-2 me-5 search-hover-image">
+                        <div class="search-hover-view">
+                            <a href = "/movies/<%= search._id %>" class = "btn btn-sm btn-outline-light text-center" > View </a>
+                        </div>  
+                    </div>
+                    <div class="ms-2 me-auto">
+                        <p> Name: <%= search.name %> </p>
+                        <p> Release Date: <%= search.date %> </p>
+                        <p> Genre: <%= search.genre %> </p>
+                        <p> Rate: <%= search.rate %> </p>
+                        <p> Time:<%= search.time %> mins </p>
+                        <a href = "/showtime/movie/<%= search._id %>" class = "btn-sm btn btn-outline-warning" > GET TICKETS </a>
+                    </div>             
+                </li>
+            <% }) %>  
+        </ol>
+<%- include( "partials/footer.ejs" ) %>

@@ -1,0 +1,134 @@
+<%- include( "../partials/header.ejs" ) %>
+
+    
+    <body class="bgAllPage text-light">
+        <!-- detail -->
+        <section class="container showtime mt-5"> 
+            <div class="card mb-3 showtime-movie" style="max-width: 550px;">
+                <div class="row g-0">
+                  <div class="col showtime-movie-img">
+                    <img src="<%= movie.poster %>" class="img-fluid rounded-start ms-3">
+                  </div>
+                  <div class="col showtime-movie-detail">
+                    <div class="card-body ">
+                        <h4 class="card-title mt-3 mb-5"><%= movie.name %></h4>
+                        <p> <i class="fa-solid fa-tag me-2"></i> <%= movie.genre %> </p>
+                        <p> <i class="fa-solid fa-film me-2"></i> <%= movie.rate %> </p>
+                        <p> <i class="fa-regular fa-clock me-2"></i> <%= movie.time %> </p>
+                        <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light mt-3" > VIEW </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+             <!-- show time -->
+             
+            <div class="accordion accordion-flush w-50 mx-auto" id="accordionFlushExample">
+              
+                <div class="accordion-item showtime-allCinema">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <% var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %> 
+                        <% var today = new Date() %> 
+                        <% var date = today.getDate() + ' ' + (today.toLocaleString('default', { month: 'long' })) + ' ' + today.getFullYear() %>
+                        <% var now = weekday[today.getDay()] %>
+                        <%= now %> 
+                        <%= date %> 
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body"> 
+                          <!-- show time of movie -->
+                            <% theater.forEach(function(theater){ %>
+                              <% if( Date.now() >= Date.parse(theater.startDate) &&  Date.now() <= Date.parse(theater.endDate)){%> 
+                                  <h5 class="card-header bg-transparent border-light"> CINEMA <%= theater.cinema %> </h5>
+                                  <div class="card-body text-light">
+                                  <% for( let i = 0; theater.allShowtime[i] != null; i++){ %> 
+                                      <form action="/select-seat/<%= theater._id %>/<%= movie._id %>" method = "post">
+                                          <input type="hidden" name = "showtime" value="<%= theater.allShowtime[i] %>">
+                                          <% let time = theater.allShowtime[i].split(':') %>       
+                                          <% if( Number(time[0]) <= today.getHours() && Number(time[1]) <= today.getMinutes()){ %> 
+                                            <button type="submit" disabled class="btn card-text btn btn-outline-warning me-5 mt-2 mb-2"> <%= theater.allShowtime[i] %></button>
+                                          <% } else { %>
+                                            <button type="submit" class="btn card-text btn btn-outline-warning me-5 mt-2 mb-2"> <%= theater.allShowtime[i] %></button>
+                                          <% } %>
+                                          <input type="hidden" name = "date" value="<%= today.getFullYear() + '-' + Number(today.getMonth()+1) + '-' + today.getDate() %>"> 
+                                        </form>
+                                  <% } %>
+                                  </div>
+                                <% } else{%> 
+                                  <div class="accordion-body text-light p-0 textPink"> No Movie Showtime </div>
+                                <% } %> 
+                            <% }) %>
+                           
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item showtime-allCinema">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <% var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %> 
+                        <% var next = new Date() %> 
+                        <% var date = (next.getDate()+1) + ' ' + (next.toLocaleString('default', { month: 'long' })) + ' ' + next.getFullYear() %>
+                        <% next = weekday[next.getDay()%6+1] %>
+                        <%= next %>
+                        <%= date %> 
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body textPink"> No Movie Showtime </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item showtime-allCinema">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <% var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %> 
+                        <% var next = new Date() %> 
+                        <% var date = (next.getDate()+2) + ' ' + (next.toLocaleString('default', { month: 'long' })) + ' ' + next.getFullYear() %>
+                        <% next = weekday[next.getDay()%6+2] %>
+                        <%= next %>
+                        <%= date %> 
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body textPink"> No Movie Showtime </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item showtime-allCinema">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        <% var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %> 
+                        <% var next = new Date() %> 
+                        <% var date = (next.getDate()+3) + ' ' + (next.toLocaleString('default', { month: 'long' })) + ' ' + next.getFullYear() %>
+                        <% next = weekday[next.getDay()%6+3] %>
+                        <%= next %>
+                        <%= date %> 
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body textPink"> No Movie Showtime </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item showtime-allCinema">
+                    <h2 class="accordion-header" id="flush-headingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                        <% var weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] %> 
+                        <% var next = new Date() %> 
+                        <% var date = (next.getDate()+4) + ' ' + (next.toLocaleString('default', { month: 'long' })) + ' ' + next.getFullYear() %>
+                        <% next = weekday[next.getDay()%6+4] %>
+                        <%= next %>
+                        <%= date %> 
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body textPink"> No Movie Showtime </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+<%- include( "../partials/footer.ejs" ) %>
+

@@ -1,0 +1,17 @@
+<%- include( "../partials/header.ejs" ) %>
+    <body class="bgAllPage text-light"> 
+        <div class=" comment-text">
+            <h3 class="text-center mt-5"> ADD NEW COMMENT </h3>
+            <form action="/movies/<%= movie._id %>/comments" method="post">
+                
+                <div class="mb-3 comment-text-input">
+                    <label for="exampleFormControlInput1 comment-input-head" class="form-label"> Comment </label>
+                    <input type="text" class="form-control comment-input-text" name="comment[text]" placeholder="Your comment">
+                </div>
+
+                <button type="submit" class="btn btn-outline-warning comment-text-btn me-3 comment-create"> submit </button>
+                <a  class="btn btn-outline-light" href="/movies/<%= movie._id %>"> back </a>
+            </form>
+        </div>
+
+    <%- include( "../partials/footer.ejs" ) %>

@@ -1,0 +1,31 @@
+<%- include( "../partials/header.ejs" ) %>
+
+    <body class="bgAllPage text-light" >
+        <div class = "container">
+            <h3 class="text-center mt-2"> EDIT PROMOTIONS </h3>
+            <form action = "/promotions/<%= promotion._id %>?_method=PUT" method = "post" enctype = "multipart/form-data">
+                
+                <div class = "mb-3">
+                    <img src = "<%= promotion.productPoster %>" height = "400px" class="edit-center-img mb-5 mt-3">
+                    <input type = "file" class = "form-control w-50 edit-center-input" name = "productPoster" accept = "productPoster/*" value = "<%= promotion.productPoster %>">
+                </div>
+
+                <div class="mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Product Name </label>
+                    <input type = "text" class = "form-control" name = "promotions[productName]" placeholder = "<%= promotion.productName %>" value = "<%= promotion.productName %>">
+                </div>
+
+                <div class = "mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> รายละเอียดสินค้่า </label>
+                    <input type = "text" class="form-control" name = "promotions[detail]" placeholder = "<%= promotion.detail%>" value = "<%= promotion.detail %>">
+                </div>
+
+                <div class = "mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> ระยะเวลาเริ่มจำหน่าย </label>
+                    <input type = "text" class = "form-control" name = "promotions[sold]" placeholder = "<%= promotion.sold%>" value = "<%= promotion.sold %>">
+                </div>
+    
+                <button type = "submit" class = "btn btn-outline-warning me-5 promotion-edit-submit" > Submit </button>
+                <a href = "/promotions" class = "btn btn-outline-light"> Back </a>
+            </form>
+        </div>

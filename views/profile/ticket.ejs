@@ -1,0 +1,25 @@
+<%- include( "../partials/header.ejs" ) %>
+
+    <form action="#" method="post"> 
+        <div class="container showtime mt-5"> 
+            <div class="card mb-3 showtime-movie" style="max-width: 550px;">
+                <div class="row g-0">
+                <div class="col showtime-movie-img">
+                    <img src="<%= movie.poster %>" class="img-fluid rounded-start ms-3">
+                </div>
+                <div class="col showtime-movie-detail">
+                    <div class="card-body ">
+                        <h4 class="card-title mt-3 mb-5"> Name </h4>
+                        <p> Date </p>
+                        <p> Showtime </p>
+                        <p> <i class="fa-solid fa-location-dot"></i> BKK </p>
+                        <p> CINEMA </p>
+                        <p> Selected Seat </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn-outline-warning"> Confirm </button>
+    </form>
+
+<%- include( "../partials/footer.ejs" ) %>

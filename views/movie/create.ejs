@@ -1,0 +1,65 @@
+<%- include( "../partials/header.ejs" ) %>
+    <body class="bgAllPage text-light">
+        <div class = "container">
+
+            <h3 class="text-center mt-2"> ADD NEW MOVIES </h3>
+
+            <form action = "/movies" method = "post" enctype = "multipart/form-data">
+
+                <!-- chang image to poster -->
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Poster </h5>
+                    <input type = "file" class = "form-control" name = "poster" accept = "poster/*">
+                </div> 
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Trailer </h5>
+                    <input type = "file" class = "form-control" name = "trailer" accept = "trailer/*">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Movies Name </h5>
+                    <input type = "text" class = "form-control" name = "movies[name]" placeholder = "MOVIES NAME">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Release Date </h5>
+                    <input type = "text" class="form-control" name = "movies[date]" placeholder = "RELEASE DATE">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Genre </h5>
+                    <input type = "text" class = "form-control" name = "movies[genre]" placeholder = "GENRE">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Rate </h5>
+                    <input type = "text" class = "form-control" name = "movies[rate]" placeholder = "RATE">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Time </h5>
+                    <input type = "text" class = "form-control" name = "movies[time]" placeholder = "TIME">
+                </div>
+
+                <div class = "mb-3 w-50 create-center-input">
+                    <h5 for = "exampleFormControlInput1" class = "form-label"> Synopsis </h5>
+                    <input type = "text" class = "form-control" name = "movies[synopsis]" placeholder = "SYNOPSIS">
+                </div>
+
+                <div class = "category mt-4 mb-3 w-100 create-center-input3 movie-create-category">
+                    <h5> Select Category </h5>
+                    <div class="form-check form-check-inline ms-4">
+                        <input class="form-check-input" type = "radio" name="movies[category]" id="inlineRadio1" value="true">
+                        <label class="form-check-label" for="inlineRadio1"> Now Showing </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type = "radio" name="movies[category]" id="inlineRadio2" value="false">
+                        <label class="form-check-label" for="inlineRadio2"> Coming Soon </label>
+                    </div>
+                </div>
+                
+                <button type = "submit" class = "btn btn-outline-warning me-5 movie-create-btn"> submit </button>
+                <a href = "/movies" class = "btn btn-outline-light" > Back </a>
+            </form>
+        </div>

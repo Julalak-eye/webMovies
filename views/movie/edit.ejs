@@ -1,0 +1,49 @@
+<%- include( "../partials/header.ejs" ) %>
+    <body class="bgAllPage text-light" >
+        <div class = "container">
+            <h3 class="text-center mt-2"> EDIT MOVIES </h3>
+            <form action = "/movies/<%= movie._id %>?_method=PUT" method = "post" enctype = "multipart/form-data">
+                
+                <div class = "mb-3 ">
+                    <img src = "<%= movie.poster %>" height = "400px" class="edit-center-img mb-5 mt-3">
+                    <input type = "file" class = "form-control w-50 edit-center-input" name = "poster" accept = "poster/*" value = "<%= movie.poster%>">
+                </div>
+        
+                <div class = "mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Trailer </label>
+                    <input type = "file" class = "form-control" name = "trailer" accept = "trailer/*" value = "<%= movie.trailer%>">
+                </div>
+
+                <div class="mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Movies Name </label>
+                    <input type = "text" class = "form-control" name = "movie[name]" placeholder = "<%= movie.name %>" value = "<%= movie.name %>">
+                </div>
+
+                <div class = "mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Release Date </label>
+                    <input type = "text" class="form-control" name = "movie[date]" placeholder = "<%= movie.date%>" value = "<%= movie.date %>"">
+                </div>
+
+                <div class = "mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Genre </label>
+                    <input type = "text" class = "form-control" name = "movie[genre]" placeholder = "<%= movie.genre%>" value = "<%= movie.genre %>">
+                </div>
+
+                <div class = "mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Rate </label>
+                    <input type = "text" class = "form-control" name = "movie[rate]" placeholder = "<%= movie.rate%>" value = "<%= movie.rate %>">
+                </div>
+
+                <div class = "mb-3 w-50 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Time </label>
+                    <input type = "text" class = "form-control" name = "movie[time]" placeholder = "<%= movie.time %>" value = "<%= movie.time %>">
+
+                <div class = "mb-3 w-100 edit-center-input">
+                    <label for = "exampleFormControlInput1" class = "form-label"> Synopsis </label>
+                    <input type = "text" class = "form-control" name = "movie[synopsis]" placeholder= "<%= movie.synopsis %>" value = "<%= movie.synopsis %>">
+                </div>
+
+                <button type = "submit" class = "btn btn-outline-warning me-5"> Submit </button>
+                <a href = "/movies" class = "btn btn-outline-light"> Back </a>
+            </form>
+        </div>

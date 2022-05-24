@@ -1,0 +1,66 @@
+<%- include( "../partials/header.ejs" ) %>
+
+<% if( currentUser && currentUser.isAdmin ){ %>
+    <body class="bgAllPage text-light">
+        <section class = "promotionsView" >
+            <article class = "promotionsView-name textShadowPurple">
+                <h1>
+                    <%= promotion.productName %>
+                </h1>
+            </article>
+            
+            <article class = "promotionsView-detail">
+                <img src=" <%= promotion.productPoster %> " class="bgShadow">
+
+                <div class = "promotionsView-detail-text">
+                    <h5>
+                        รายละเอียดสินค้า
+                    </h5>
+                    <p>
+                        <%= promotion.detail%> 
+                    </p>
+
+                    <h5>
+                        ระยะเวลาเริ่มจำหน่าย
+                    </h5>
+                    <p>
+                        <%= promotion.sold%> 
+                    </p>
+                </div>
+            </article>
+        </section>
+        <!-- <a href = "/promotions" class = "btn btn-primary" > Back </a> -->
+
+<% } else { %> 
+    <body class="bgAllPage  mb-5">
+        <section class = "promotionsView text-light" >
+            <article class = "promotionsView-name textShadowPurple">
+                <h1>
+                    <%= promotion.productName %>
+                </h1>
+            </article>
+            
+            <article class = "promotionsView-detail">
+                <img src=" <%= promotion.productPoster %> " class = "promotionsView-detail-image bgShadow">
+
+                <div class = "promotionsView-detail-text">
+                    <h4 class="textPink">
+                        รายละเอียดสินค้า
+                    </h4>
+                    <h5>
+                        <%= promotion.detail%> 
+                    </h5>
+
+                    <h4 class="textPink">
+                        ระยะเวลาเริ่มจำหน่าย
+                    </h4>
+                    <h5>
+                        <%= promotion.sold%> 
+                    </h5>
+                </div>
+            </article>
+        </section>
+        <!-- <a href = "/promotions" class = "btn btn-primary" > Back </a> -->
+    <% } %> 
+
+<%- include( "../partials/footer.ejs" ) %>

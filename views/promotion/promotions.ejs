@@ -1,0 +1,75 @@
+<%- include( "../partials/header.ejs" ) %>
+<% let count = 1 %>
+  
+    <% if( currentUser && currentUser.isAdmin ){ %>
+        <body class="bgAllPage">
+            <div class = "d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <p>
+                    <a href = "/promotions/new" class= " btn btn-outline-light my-2"> ADD NEW PROMOTIONS </a>
+                </p>
+            </div>
+
+            <ol class="list-group list-group-numbered">
+                <% promotion.forEach(function(promotion){ %>   
+                <% count++ %>
+                <li class="list-group-item d-flex justify-content-between align-items-start text-light bgAllPage">
+                    <img src = " <%= promotion.productPoster %>" height = "150px" class = "index-image ms-2 me-5">
+                    <div class="ms-2 me-auto">
+                        <p> <%= promotion.productName %> </p>
+                        <p>  รายละเอียดสินค้า: <%= promotion.detail %> </p>
+                        <p> ระยะเวลาเริ่มจำหน่าย: <%= promotion.sold %> </p>
+                        <div>
+                            <div class = "btn-group promotion-btn-group">
+                                <a href = "/promotions/<%= promotion._id %>" class = "btn btn-sm btn-outline-light me-5" > View </a>
+                                <a href = "/promotions/<%= promotion._id %>/edit" class="btn btn-sm btn-outline-light me-5" > Edit </a>
+                                    
+                                <!-- Button trigger modal -->
+                                <button type = "button" class = "btn btn-sm btn-outline-danger" data-bs-toggle = "modal" data-bs-target  =  "#exampleModal<%=  count %> "> Delete </button>
+                                <!-- Modal -->
+                                <div class = "modal fade" id = "exampleModal<%= count %>" tabindex = "-1" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
+                                    <div class = "modal-dialog">
+                                        <div class = "modal-content bgAllPage text-light">
+                                            <div class = "modal-header">
+                                            <h5 class = "modal-title" id = "exampleModalLabel"> Delete </h5>
+                                            <button type = "button" class = "btn-close bg-light" data-bs-dismiss = "modal" aria-label = "Close"></button>
+                                            </div>
+                                            <div class = "modal-body"> Are you sure you want to delete this promotion? </div>
+                                            <div class = "modal-footer">
+                                            <button type = "button" class = "btn btn-outline-light" data-bs-dismiss = "modal"> Close </button>                                                                                                        
+                                            <form action = "/promotions/<%= promotion._id %>?_method=DELETE" method = "post" > <button type = "submit" class = "btn btn-primary"> Delete </button></form>                                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                  
+                </li>
+            <% }) %>  
+        </ol>
+
+    <% } else { %>
+        <body class="bgAllPage">
+            <div class = "row text-light">  
+                <div class = "col promotion pt-5"> <h5> PROMOTION </h5> </div>
+                <div class = "col pt-5" > <a href="/promotions" class = "promotionAll btn text-light"> ALL </a> </div>
+            </div>
+            <div class = "album py-5">
+                <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                    <% promotion.forEach(function(promotion){ %>
+                        <div class = "col">
+                            <div class="card text-light promotion-card">
+                                <div class="promotion-card-hover">
+                                    <img src="<%= promotion.productPoster %>" class="card-img index-image promotion-hover-image" width = "500" height = "450">
+                                    <a href = "/promotions/<%= promotion._id %>" class = "btn btn-sm btn-outline-light promotion-hover-view fs-5" > View </a>
+                                </div>
+                                <div class = "card-body text-center">
+                                    <p class="fs-5"> <%= promotion.productName %> </p>
+                                </div>
+                            </div>  
+                        </div>  
+                    <% }) %>
+                </div>
+            </div> 
+    <%- include( "../partials/footer.ejs" ) %>
+    <% } %>

@@ -1,0 +1,28 @@
+<%- include( "../partials/header.ejs" ) %>
+    <body class="bgAllPage text-light">
+       
+        <form action="/select-seat/<%= theater._id %>/<%= movie._id %>/ticket" method="post">
+            <div class="container showtime mt-5 text-light"> 
+                <div class="card mb-3 showtime-movie confirm">
+                    <div class="row g-0">
+                    <div class="col showtime-movie-img">
+                        <img src="<%= movie.poster %>" class="img-fluid rounded-start ms-3">
+                    </div>
+                    <div class="col showtime-movie-detail">
+                        <div class="card-body ">
+                            <h4 class="card-title mt-3 mb-5"><%= movie.name %></h4>
+                            <p> <%= scheduleId.date %> </p>
+                            <p> <%= showtime %> </p>
+                            <p> <i class="fa-solid fa-location-dot"></i> BKK </p>
+                            <p > CINEMA <%= theater.cinema %> </p>
+                            <p> Selected Seat: <%= seat %>  </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" value="<%= scheduleId._id %>" name="scheduleId">
+            <input type="hidden" value="<%= seat %>" name="seat">
+            <button type="submit" class="btn-outline-warning btnConfirm"> submit </button>
+        </form>
+<%- include( "../partials/footer.ejs" ) %>

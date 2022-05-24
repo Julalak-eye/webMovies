@@ -1,0 +1,127 @@
+<%- include( "../partials/header.ejs" ) %>
+<% let count = 1 %>
+
+    <% if( currentUser && currentUser.isAdmin ){ %>
+        <body class="bgAllPage" >
+            <div class = "d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <p>
+                    <a href = "/movies/new" class= " btn btn-outline-light my-2"> ADD NEW MOVIES </a>
+                </p>
+            </div>
+            
+            <ol class="list-group list-group-numbered">
+                <% movie.forEach(function(movie){ %>   
+                    <% count++ %>
+                    <li class="list-group-item d-flex justify-content-between align-items-start text-light bgAllPage">
+                        <img src = " <%= movie.poster %>" height = "200px" class = "index-image ms-2 me-5">
+                        <div class="ms-2 me-auto">
+                            <p> Name: <%= movie.name %> </p>
+                            <p> Release Date: <%= movie.date %> </p>
+                            <p> Genre: <%= movie.genre %> </p>
+                            <p> Rate: <%= movie.rate %> </p>
+                            <p> Time:<%= movie.time %> mins </p>
+                            <!-- box office -->
+                               
+                            <div class = "btn-group movie-btn-group"> 
+                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light me-5" > View </a>
+                                <a href = "/movies/<%= movie._id %>/edit" class="btn btn-sm btn-outline-light me-5" > Edit </a>
+                                <a href = "/movies/<%= movie._id %>/cinema/add" class="btn btn-sm btn-outline-warning me-5" > Add Theater </a>
+                                
+                                <!-- Button trigger modal -->
+                                <button type = "button" class = "btn btn-sm btn-outline-danger" data-bs-toggle = "modal" data-bs-target  =  "#exampleModal<%=  count %> "> Delete </button>
+                                <!-- Modal -->
+                                <div class = "modal fade" id = "exampleModal<%= count %>" tabindex = "-1" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
+                                    <div class = "modal-dialog">
+                                        <div class = "modal-content bgAllPage text-light">
+                                            <div class = "modal-header">
+                                            <h5 class = "modal-title" id = "exampleModalLabel"> Delete </h5>
+                                            <button type = "button" class = "btn-close bg-light " data-bs-dismiss = "modal" aria-label = "Close"></button>
+                                            </div>
+                                            <div class = "modal-body"> Are you sure you want to delete this movies? </div>
+                                            <div class = "modal-footer">
+                                            <button type = "button" class = "btn btn-outline-light" data-bs-dismiss = "modal"> Close </button>                                                                                                        
+                                            <form action = "/movies/<%= movie._id %>?_method=DELETE" method = "post" > <button type = "submit" class = "btn btn-outline-danger"> Delete </button></form>                                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>                  
+                    </li>
+                <% }) %>  
+            </ol>
+
+        
+    <% } else { %>
+     <!-- MOVIES -->
+    <!-- NOWSHOWING -->
+    <body class="bgAllPage" >
+        <h5 class="text-light pt-1 ms-3"> NOW SHOWING </h5>
+        <div class = "overflow-scroll">
+            <div class = "album py-5 ">
+                <div class = "">
+                    <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                        <% movie.forEach(function(movie){ %>
+                            <% if( movie.category === true ){ %>
+                            <div class = "col ">
+                                <div class="card text-light nowShowing-card">
+                                    <img src="<%= movie.poster %>" class="card-img index-image" width = "450" height = "400">
+                                    <div class = "card-body">
+                                        <p> <%= movie.date%>  </p>
+                                        <p> <%= movie.name %> </p>
+                                        <div class = "d-flex justify-content-between align-items-center">
+                                            <div class = "btn-group">
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light me-5 ms-4" > VIEW </a>
+                                                <a href = "#" class = "btn-sm btn btn-outline-warning" > GET TICKETS </a>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <% } %>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMMINGSOON -->
+        <h5 class="text-light ms-5"> COMING SOON </h5>
+        <div class = "overflow-scroll">
+            <div class = "album py-5 ">
+                <div class = "">
+                    <div class = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                        <% movie.forEach(function(movie){ %>
+                            <% if( movie.category === false ){ %>
+                            <div class = "col ">
+                                <div class="card text-light comingSoon-card">
+                                    <img src="<%= movie.poster %>" class="card-img index-image" width = "450" height = "400">
+                                    <div class = "card-body">
+                                        <p > <%= movie.date %> </p>
+                                        <p > <%= movie.name %> </p>
+
+                                        <p class = "card-text"> Genre: <%= movie.genre %> </p>
+                                        <p class = "card-text"> Rate: <%= movie.rate %> </p>
+                                        
+                                        <div class = "d-flex justify-content-between align-items-center">
+                                            <div class = "btn-group">
+                                                <a href = "/movies/<%= movie._id %>" class = "btn btn-sm btn-outline-light me-5 ms-4" > VIEW </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <% } %> 
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+    
+    <%- include( "../partials/footer.ejs" ) %>
+    <% } %>
+                  
+
+ 

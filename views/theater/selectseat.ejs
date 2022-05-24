@@ -1,0 +1,63 @@
+<%- include( "../partials/header.ejs" ) %>
+    <body class="bgAllPage text-light">
+
+        <div class="container showtime mt-5"> 
+            <div class="card mb-3 showtime-movie selectseat-movies">
+                <div class="row g-0">
+                  <div class="col showtime-movie-img">
+                    <img src="<%= movie.poster %>" class="img-fluid rounded-start ms-3">
+                  </div>
+                  <div class="col showtime-movie-detail">
+                    <div class="card-body ">
+                        <h4 class="card-title mt-3 mb-5"><%= movie.name %></h4>
+                        <p> <%= showtime %>  </p>
+                        <p> <%= Schedule.date %> </p>
+                        <p> <i class="fa-solid fa-location-dot"></i> BKK </p>
+                        <p > CINEMA <%= theater.cinema %> </p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    <h2 class="selectseat-screen w-50" > SCREEN </h2>
+    
+    <form action="/select-seat/<%= theater._id %>/<%= movie._id %>/ticket/?_method=PUT" method="post" class="row ms-5">
+        <table class="table table-borderless text-light fa-xl selectseat-screen-seat text-center mt-5 col-md-7 ms-5">
+            
+            <tr class="row row-cols-5 " >
+                <% seat.forEach(function(seat){ %>
+                    <% if(seat.available){ %>
+                        <td> <input type ="checkbox" class="seat" name="seat" value="<%= seat.name %>" positionSeat = "<%= seat.name %>"> <i class="fa-solid fa-couch"></i> </input> </td>
+                        <% } else { %>
+                        <td> <input type ="checkbox" class="seat" checked disabled name="seat" value="<%= seat.name %>" positionSeat = "<%= seat.name %>"> <i class="fa-solid fa-couch"></i> </input> </td>
+                        <% } %>
+                <% }) %>
+            </tr>
+        </table>
+        
+        <aside class="col-md-5">
+            <div class="container showtime-tickete"> 
+                <div class="card mb-3 showtime-ticket-movie selectseat-movies">
+                    <div class="row g-0">
+                        <div class="col showtime-movie-detail">
+                            <div class="card-body ">
+                                <h4 class="card-title mt-3 mb-5 text-center"><%= movie.name %></h4>
+                                <p> <%= showtime %>  </p>
+                                <p> <%= scheduleId.date %> </p>
+                                <p> CINEMA <%= theater.cinema %> </p>
+                                <p> <i class="fa-solid fa-location-dot"></i> BKK </p>
+                                <h3 class="positionSeat">  </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <input type="hidden" value="<%= scheduleId %>" name="scheduleId">
+        <input type="hidden" value="<%= showtime %>" name="showtime">
+        <button type="submit" class="w-50 ms-5 btn-outline-warning btnSelectseat"> Next </button>
+        
+        
+    </form>
+    
+<%- include( "../partials/footer.ejs" ) %>

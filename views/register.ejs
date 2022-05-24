@@ -1,0 +1,39 @@
+<%- include( 'partials/header.ejs' ) %>
+
+    <body class = "bgAllPage text-white" >
+        <div class="register">
+            <h1 class="register-text"> Register </h1>
+            <form action = "/register" method = "post">
+
+                <div class = "mb-3 w-50">
+                    <label class = "form-label"> Username </label>
+                    <input type = "text" class = "form-control" name = "username" placeholder = "Your username">
+                </div>
+
+                <div class = "mb-3 w-50">
+                    <label class = "form-label"> Email </label>
+                    <input type = "email" class = "form-control" name = "email" placeholder = "Your Email">
+                </div>
+
+                <div class = "mb-3 w-50">
+                    <label class = "form-label"> Password </label>
+                    <input type = "password" class = "form-control" name = "password" placeholder = "Your Password">
+                </div>
+
+                <!-- <div class = "mb-3 w-50">
+                    <label class = "form-label"> Top secret </label>
+                    <input type = "text" class = "form-control" name = "secret" placeholder = "Top secret">
+                </div> -->
+
+                <button type = "submit" class = "btn btn-outline-warning mt-4 me-5 register-text-btn"> SIGN UP </button>
+                <a href = "/" class = "btn btn-outline-light mt-4" > BACK </a>
+            </form>
+
+            <div class = "row mt-4 login-text-btn">
+                <p class="co mt-2"> Already have an account? </p>
+                <a class="col d-inline nav-link ms-5 textPink text-decoration-underline" href="/login"> LOGIN </a>
+            </div>
+        </div>
+    </body>
+
+<%- include( 'partials/footer.ejs' ) %>
